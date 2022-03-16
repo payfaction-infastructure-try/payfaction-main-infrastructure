@@ -2,8 +2,16 @@ data "aws_iam_role" "ecs_task_execution_role" {
   name = "ecsTaskExecutionRole"
 }
 
+resource "aws_ecr_repository" "app_repo" {
+  name                 = "${local.aws_ecr_repository_name}"
+  image_tag_mutability = "MUTABLE"
+
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+}
+
 data "aws_ecr_repository" "app_repo" {
-  name = "${local.aws_ecr_repository_name}"
 }
 
 
