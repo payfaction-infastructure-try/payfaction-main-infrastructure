@@ -11,10 +11,6 @@ resource "aws_ecr_repository" "app_repo" {
   }
 }
 
-data "aws_ecr_repository" "app_repo" {
-}
-
-
 resource "aws_lb_target_group" "app_tg" {
   name        = "${local.aws_alb_target_group_name}"
   port        = 80
