@@ -42,7 +42,7 @@ resource "aws_ecs_task_definition" "app_task_def" {
     [
       {
         "essential": true,
-        "image": "${data.aws_ecr_repository.app_repo.repository_url}",
+        "image": "${aws_ecr_repository.app_repo.repository_url}",
         "cpu": 1024,
         "memory": 2048,
         "name": "${local.aws_ecs_service_name}",
